@@ -6,9 +6,23 @@ using System.Threading.Tasks;
 
 namespace MauiAppHotelTransilvania.Models
 {
+    
     public class Hospedagem
     {
-        public Quarto QuartoSelecionado { get; set; }
+        Quarto _quartoselecionado;
+        public Quarto QuartoSelecionado
+        {
+            get => _quartoselecionado;
+            set
+            {
+                if (value == null)
+                {
+                    throw new Exception("Selecione um quarto");
+                }
+                _quartoselecionado = value;
+            }
+
+        }
         public int QntAdultos { get; set; }
         public int QntCriancas { get; set; }
         public DateTime DataCheckIn { get; set; }
